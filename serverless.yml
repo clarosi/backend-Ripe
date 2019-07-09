@@ -1,0 +1,15 @@
+service: aws-nodejs
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  getWeather:
+    handler: handler.getWeather
+    events:
+      - http:
+          path: /weather
+          method: get
+          cors:
+            origin: '*'
